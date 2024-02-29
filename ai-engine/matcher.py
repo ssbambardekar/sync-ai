@@ -7,7 +7,6 @@ csv_files = {
     'volunteering': 'data/volunteer-opportunities.csv',
     'other': 'data/other-opportunities.csv',
 } 
-UnicodeTranslateError
 
 # Load opportunities using pandas
 def load_opportunities(file_type):
@@ -32,14 +31,16 @@ def find_matches(criteria):
         all_matches[file_type] = matches
     return all_matches
 
+# Unit Tests 
+# Test for the class
 if __name__ == "__main__":
-    # Example criteria
     criteria = {
         'Title': 'building',
-        'Description': 'high school'        
-        # Add more criteria as needed
+        'Description': 'high school',        
+        'Skills':'communication'
     }
     
+    # Test for function find_matches() 
     matches = find_matches(criteria)
     for category, matched_df in matches.items():
         print(f"Category: {category}, Matches Found: {len(matched_df)}")

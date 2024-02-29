@@ -1,4 +1,4 @@
-from matcher import find_matches  # Import the matching function from matcher.py
+from matcher import find_matches
 
 def gather_user_criteria():
     print("Let's find opportunities that match your interests and skills.")
@@ -10,11 +10,11 @@ def display_matches(matches):
     for category, matched_df in matches.items():
         if not matched_df.empty:
             print(f"\nCategory: {category}, Matches Found: {len(matched_df)}")
-            print(matched_df[['Title', 'Company', 'Location', 'Description']], "\n")
+            print(matched_df[['Title', 'Company', 'Location', 'Skills', 'Description']], "\n")
         else:
             print(f"\nCategory: {category}, No matches found.")
 
-def main():
+def manage_chat_session():
     while True:
         criteria = gather_user_criteria()
         matches = find_matches(criteria)
@@ -30,5 +30,7 @@ def main():
         if cont != 'yes':
             break
 
+# Unit Tests 
+# Test for the class
 if __name__ == "__main__":
-    main()
+    manage_chat_session()
