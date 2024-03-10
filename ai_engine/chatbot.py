@@ -1,4 +1,5 @@
-from matcher import find_matches
+# from matcher import find_matches
+import matcher
 
 def gather_user_criteria():
     print("Let's find opportunities that match your interests and skills.")
@@ -14,7 +15,7 @@ def display_matches(matches):
         else:
             print(f"\nCategory: {category}, No matches found.")
 
-def manage_chat_session():
+def chat_with_user():
     while True:
         criteria = gather_user_criteria()
         matches = find_matches(criteria)
@@ -33,4 +34,4 @@ def manage_chat_session():
 # Unit Tests 
 # Test for the class
 if __name__ == "__main__":
-    manage_chat_session()
+    chat_with_user()

@@ -1,0 +1,63 @@
+<!-- Embed this HTML in your website -->
+<div id="chatbot">
+  <div id="chat-container"></div>
+  <input type="text" id="chat-input" placeholder="Ask me anything...">
+  <button onclick="sendMessage()">Send</button>
+</div>
+
+<script>
+// Update this URL to your Flask app's URL
+const chatUrl = 'http://localhost:5000/chat';
+
+function sendMessage() {
+  const inputElement = document.getElementById('chat-input');
+  const message = inputElement.value;
+  inputElement.value = '';  // Clear input after sending
+
+  displayMessage(message, 'user');
+
+  fetch(chatUrl, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ user_input: message })
+  })
+  .then(response => response.json())
+  .then(data => {
+    displayMessage(data.response, 'bot');
+  })
+  .catch(error => console.error('Error:', error));
+}
+
+function displayMessage(message, sender) {
+  const container = document.getElementById('chat-container');
+  const messageElement = document.createElement('div');
+  messageElement.textContent = message;
+  messageElement.className = sender;
+  container.appendChild(messageElement);
+}
+</script>
+
+<style>
+#chatbot {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+#chat-container {
+  height: 200px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+}
+.user, .bot {
+  margin-bottom: 5px;
+}
+.user {
+  text-align: right;
+  color: blue;
+}
+.bot {
+  text-align: left;
+  color: green;
+}
+</style>

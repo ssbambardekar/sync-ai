@@ -35,13 +35,11 @@ def find_matches(criteria):
 # Test for the class
 if __name__ == "__main__":
     criteria = {
-        'Title': 'building',
         'Description': 'high school',        
         'Skills':'communication'
     }
     
     # Test for function find_matches() 
     matches = find_matches(criteria)
-    for category, matched_df in matches.items():
-        print(f"Category: {category}, Matches Found: {len(matched_df)}")
+    for category, matched_df in matches.items():         
         print(matched_df[['Title', 'Company', 'Location', 'Description']], "\n")  # Customize output columns as needed
