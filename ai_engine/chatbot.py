@@ -1,12 +1,13 @@
-# from matcher import find_matches
-import matcher
+from matcher import find_matches
 
+# Gather user criteria for the AI search
 def gather_user_criteria():
     print("Let's find opportunities that match your interests and skills.")
-    interests = input("What are you interested in? (e.g., environmental sustainability): ")
-    skills = input("What skills do you have? (e.g., communication): ")
+    interests = input("What are you interested in? (e.g., research, healthcare): ")
+    skills = input("What skills do you have? (e.g., communication, STEM): ")
     return {'Description': interests, 'Skills Needed': skills}
 
+# Display the matched results
 def display_matches(matches):
     for category, matched_df in matches.items():
         if not matched_df.empty:
@@ -15,6 +16,7 @@ def display_matches(matches):
         else:
             print(f"\nCategory: {category}, No matches found.")
 
+# Chat with the user
 def chat_with_user():
     while True:
         criteria = gather_user_criteria()
