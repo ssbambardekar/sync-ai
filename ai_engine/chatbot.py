@@ -1,6 +1,3 @@
-import spacy
-from transformers import pipeline, set_seed, Conversation
-import pandas as pd
 from matcher import find_matches
 
 # Load spaCy's English language model

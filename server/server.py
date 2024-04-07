@@ -10,7 +10,7 @@ from ai_engine.chatbot import chat_with_user  # Import your chatbot logic here
 app = Flask(__name__)
 CORS(app)  # Enable CORS for AJAX requests
 
-@app.route("/chat", methods=["POST"])
+@app.route("/chat", methods=["GET"])
 def chat():
     user_input = request.json.get("user_input")
     # response = chat_with_user(user_input)  # Adapt this to work with your chatbot logic
