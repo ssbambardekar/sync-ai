@@ -12,3 +12,4 @@ SYNC AI
 - flask: use command _"pip install flask"_
 - flask_cors: use command _"pip install flask_cors"_
 - matcher: use command _"pip install matcher"_
+- matcher: use command _"pip install --upgrade openai"_
