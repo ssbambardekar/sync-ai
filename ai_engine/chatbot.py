@@ -1,4 +1,4 @@
-from matcher import find_matches
+from ai_engine.matcher import find_matches
 
 # Gather user criteria for the AI search
 def gather_user_criteria():
