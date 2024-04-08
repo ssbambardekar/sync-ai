@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GPT-4 Demo</title>
+</head>
+<body>
+    <textarea id="prompt" rows="4" cols="50"></textarea><br>
+    <button onclick="generateText()">Generate Text</button><br>
+    <div id="output"></div>
+
+    <script>
+        function generateText() {
+            var prompt = document.getElementById("prompt").value;            
+            fetch("http://127.0.0.1:5000/generate_text", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ prompt: prompt })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("output").innerText = data.generated_text;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+
+<iframe src="https://chat.openai.com/c/dd4afe6b-f104-475d-b8ff-7b690c844fb7" height="200" width="300" title="Iframe Example"></iframe>
+
+</body>
+</html>
