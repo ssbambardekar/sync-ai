@@ -1,12 +1,8 @@
 /**
  * ChatGpt Page Code
  */
-
-/**
- * Imports
- */
-import { add } from 'public/test-gpt-client.js'
-import { queryGpt } from 'backend/chat-gpt-module.web';
+import { add } from 'public/chat-gpt-client'
+import { queryGptAssistant } from 'backend/chat-gpt-module.wix';
 
 /**
  * Page onReady function
@@ -15,7 +11,7 @@ $w.onReady(async function () {
     // Print hello world:
     console.log("Hello world!");
 
-    let sum = add(6, 7);
+    let sum = add(16, 5);
     console.log("Client Call: ", sum);
 
     $w("#ChatMessages").text = "SYNC: Welcome! How may I help you today?"
@@ -36,7 +32,7 @@ export async function sendMessage_click(event) {
     $w("#ChatMessages").text += "\nYOU  : " + userMessage
 
     // Send to server
-    let gptResponse = await queryGpt(userMessage)     
+    let gptResponse = await queryGptAssistant(userMessage)     
     console.log("Server reply: ", gptResponse)
     
     // Update the chat messages with server response
