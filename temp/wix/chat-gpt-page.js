@@ -2,18 +2,15 @@
  * ChatGpt Page Code
  */
 import { add } from 'public/chat-gpt-client'
-import { queryGptAssistant } from 'backend/chat-gpt-module.wix';
+import { queryGptAssistant } from 'backend/chat-gpt-module.wix.web';
 
 /**
  * Page onReady function
  */
 $w.onReady(async function () {
-    // Print hello world:
-    console.log("Hello world!");
-
+    // Call a client module
     let sum = add(16, 5);
-    console.log("Client Call: ", sum);
-
+    
     $w("#ChatMessages").text = "SYNC: Welcome! How may I help you today?"
 });
 
@@ -23,7 +20,6 @@ $w.onReady(async function () {
 export async function sendMessage_click(event) {
     // Get user message
     let userMessage = $w("#userMessage").value
-    console.log("User message: ", userMessage)
     if (userMessage === null || userMessage.trim() === "") {
         return
     }
