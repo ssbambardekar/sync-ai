@@ -16,7 +16,7 @@ $w.onReady(async function () {
     // Call a client module - code kept for reference
     let sum = add(16, 5);
     
-    $w("#ChatMessages").text = "SYNC: Welcome! How may I help you today?";
+    $w("#ChatMessages").text = "SYNC: Welcome! I am SYNC Genie at your service! How may I help you today?";
 });
 
 /**
