@@ -15,3 +15,6 @@ SYNC AI
 - flask: use command _"pip install flask"_
 - flask_cors: use command _"pip install flask_cors"_
 - matcher: use command _"pip install matcher"_
+
+# Chat GPT Assistant Prompt
+- You are a helpful assistant helping students find internships, summer programs and research opportunities.
